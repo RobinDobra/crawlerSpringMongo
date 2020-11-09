@@ -6,12 +6,14 @@ import com.web.crawler.service.CrawlerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/crawler")
@@ -50,6 +52,13 @@ public class CrawlerController {
     public List<Crawler> getAllUrls() {
         LOG.info("Getting all URLs.");
         return crawlerRepository.findAll();
+    }
+
+
+    @RequestMapping(value = "/{crawlerId}", method = RequestMethod.GET)
+    public Optional<Crawler> getCrawler(@PathVariable String crawlerId) {
+        LOG.info("Getting crawler with ID: {}.", crawlerId);
+        return crawlerRepository.findById(crawlerId);
     }
 
 

@@ -19,7 +19,7 @@ public class CrawlerApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        crawlerRepository.deleteAll();
+        //crawlerRepository.deleteAll();
 
         crawlerRepository.save(new Crawler(""));
     }

@@ -3,13 +3,14 @@ package com.web.crawler.model;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
+import java.net.URL;
 import java.util.HashSet;
 
 @Data
 public class Crawler {
 
     @Id
-    public String id;
+    public String crawlerId;
 
     public String name;
 
